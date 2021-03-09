@@ -1,3 +1,4 @@
+#%%
 import datetime as dt
 import numpy as np
 import pandas as pd
@@ -8,8 +9,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
 from flask import Flask, jsonify 
-
-engine = create_engine("sqlite:///fResources/hawaii.sqlite")
+#%%
+engine = create_engine("sqlite:///Resources/hawaii.sqlite")
 
 Base = automap_base()
 
@@ -74,3 +75,6 @@ def stats(start=None, end=None):
         filter(Measurement.date <= end).all()
     temps = list(np.ravel(results))
     return jsonify(temps=temps)
+
+if __name__ == '__main__':
+    app.run(debug=True)
