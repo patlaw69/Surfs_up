@@ -1,8 +1,18 @@
-#%%
-import datetime as dt
-import numpy as np
-import pandas as pd
-
+#%% 
+import subprocess
+import sys
+try:
+    import datetime as dt
+    import numpy as np
+    import pandas as pd
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "datetime"])
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "numpy"])
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pandas"])
+finally:
+    import datetime as dt
+    import numpy as np
+    import pandas as pd
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -78,3 +88,4 @@ def stats(start=None, end=None):
 
 if __name__ == '__main__':
     app.run(debug=True)
+# %%
