@@ -20,7 +20,7 @@ from sqlalchemy import create_engine, func
 
 from flask import Flask, jsonify 
 #%%
-engine = create_engine('sqlite:///Class Folder/Resources/hawaii.sqlite')
+engine = create_engine('sqlite:///hawaii.sqlite')
 
 Base = automap_base()
 
@@ -90,4 +90,3 @@ def stats(start=None, end=None):
 
 if __name__ == '__main__':
     app.run(debug=True)
-# %%
